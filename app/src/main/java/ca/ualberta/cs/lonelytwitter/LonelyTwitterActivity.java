@@ -79,6 +79,11 @@ public class LonelyTwitterActivity extends Activity {
 	
 	private void saveInFile(String text, Date date) {
 		try {
+
+			NormalTweet normalTweet = new NormalTweet("");
+			normalTweet.setMessage("Hello, world!");
+			normalTweet.addMood(new HappyMood());
+
 			FileOutputStream fos = openFileOutput(FILENAME,
 					Context.MODE_APPEND);
 			fos.write(new String(date.toString() + " | " + text)
@@ -89,6 +94,8 @@ public class LonelyTwitterActivity extends Activity {
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TweetTooLongException e) {
 			e.printStackTrace();
 		}
 	}
