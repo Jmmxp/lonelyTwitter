@@ -6,17 +6,10 @@ Link: https://github.com/Rosevear/lonelyTwitter/tree/master/app/src/main/java/ca
 
 public class ImportantTweet extends Tweet {
 
-    ImportantTweet() {
-        super();
-    }
-
-    ImportantTweet(String message) {
-        super(message);
-    }
-
     @Override
     public Boolean isImportant() {
         return true;
     }
 
 }
+

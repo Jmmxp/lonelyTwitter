@@ -6,14 +6,6 @@ Link: https://github.com/Rosevear/lonelyTwitter/tree/master/app/src/main/java/ca
 
 public class NormalTweet extends Tweet {
 
-    NormalTweet() {
-        super();
-    }
-
-    NormalTweet(String message) {
-        super(message);
-    }
-
     @Override
     public Boolean isImportant() {
         return false;
