@@ -13,8 +13,10 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +41,15 @@ public class LonelyTwitterActivity extends Activity {
 		bodyText = (EditText) findViewById(R.id.body);
 		Button saveButton = (Button) findViewById(R.id.save);
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
+		oldTweetsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+				Intent intent = new Intent(LonelyTwitterActivity.this, EditTweetActivity.class);
+				intent.putExtra(EditTweetActivity.EXTRA_TWEET, (Tweet) adapterView.getItemAtPosition(i));
+
+				startActivity(intent);
+			}
+		});
+
 
 		saveButton.setOnClickListener(new View.OnClickListener() {
 
